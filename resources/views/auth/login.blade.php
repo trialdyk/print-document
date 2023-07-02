@@ -51,12 +51,16 @@
 
                             </div>
                         </div>
+                        @error('email')
+                        <p class="text-center text-red-500">Password atau email tidak sesuai</p>
+                        @enderror
                         <div>
                             <button type="submit" class="w-full flex justify-center bg-purple-800  hover:bg-purple-700 text-gray-100 p-3  rounded-lg tracking-wide font-semibold  cursor-pointer transition ease-in duration-500">
                                 Sign in
                             </button>
                         </div>
                     </form>
+                   
                     <div class="mt-7 text-center text-gray-300 text-xs">
                         <span>
                     Copyright © 2021-2023
