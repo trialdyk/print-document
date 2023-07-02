@@ -14,7 +14,7 @@
         <script src="https://cdn.tailwindcss.com"></script>
         @yield('style')
     </head>
-    <body class="bg-primary-silver" style="font-family: 'Inter', sans-serif;">
+    <body style="font-family: 'Inter', sans-serif; background-color:#e5e6e7">
 
         <!-- Header -->
             @include('layouts.header')
