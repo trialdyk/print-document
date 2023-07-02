@@ -311,6 +311,8 @@ $(document).ready(function(){
            data: $(this).serialize(),
            success: function(response){
                 GetData(1)
+                $('#create-name').val('')
+                  $('#create-nis').val('')
                 Swal.fire({
                     title:'Berhasil!',
                     icon:'success',
@@ -393,8 +395,7 @@ $(document).on('click', '.btn-delete', function(){
                     _token: $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function(response){
-                  $('#create-name').val('')
-                  $('#create-nis').val('')
+                  
                     Swal.fire({
                         title:'Berhasil!',
                         icon:'success',
