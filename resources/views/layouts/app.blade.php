@@ -10,7 +10,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
-        @vite('resources/css/app.css')
+        <link rel="stylesheet" href="{{asset('app.css')}}">
+        <script src="https://cdn.tailwindcss.com"></script>
         @yield('style')
     </head>
     <body class="bg-primary-silver" style="font-family: 'Inter', sans-serif;">
@@ -26,9 +27,9 @@
             @yield('content')
         </div>
         <!-- End Content -->
-
-        @vite('resources/js/app.js')
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
         @yield('script')
     </body>

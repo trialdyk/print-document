@@ -14,18 +14,18 @@ return new class extends Migration
         Schema::create('rekaps', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained('students')->cascadeOnDelete();
-            $table->date('juli')->nullable();
-            $table->date('agustus')->nullable();
-            $table->date('septemer')->nullable();
-            $table->date('oktober')->nullable();
-            $table->date('november')->nullable();
-            $table->date('desember')->nullable();
-            $table->date('januari')->nullable();
-            $table->date('februari')->nullable();
-            $table->date('maret')->nullable();
-            $table->date('april')->nullable();
-            $table->date('mei')->nullable();
-            $table->date('juni')->nullable();
+            $table->date('juli')->format('d/m/Y')->nullable();
+            $table->date('agustus')->format('d/m/Y')->nullable();
+            $table->date('septemer')->format('d/m/Y')->nullable();
+            $table->date('oktober')->format('d/m/Y')->nullable();
+            $table->date('november')->format('d/m/Y')->nullable();
+            $table->date('desember')->format('d/m/Y')->nullable();
+            $table->date('januari')->format('d/m/Y')->nullable();
+            $table->date('februari')->format('d/m/Y')->nullable();
+            $table->date('maret')->format('d/m/Y')->nullable();
+            $table->date('april')->format('d/m/Y')->nullable();
+            $table->date('mei')->format('d/m/Y')->nullable();
+            $table->date('juni')->format('d/m/Y')->nullable();
             $table->timestamps();
         });
     }

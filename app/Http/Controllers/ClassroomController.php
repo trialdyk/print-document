@@ -19,7 +19,7 @@ class ClassroomController extends Controller
                 ->when($request->year,function($query) use ($request){
                     $query->where('year_id',$request->year);
                 })
-                ->orderBy('created_at','desc')->paginate(6);
+                ->orderBy('created_at','desc')->paginate(15);
             $links = $data->links('layouts.paginate');
             return response()->json([
                     'data' => $data,

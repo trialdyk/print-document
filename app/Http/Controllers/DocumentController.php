@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Classroom;
 use App\Models\Student;
+use App\Models\Year;
 use Illuminate\Http\Request;
 use WordTemplate;
 use PhpOffice\PhpWord\TemplateProcessor;
@@ -20,7 +21,11 @@ class DocumentController extends Controller
             $data = Classroom::withCount('student')
             ->when($request->has('search'), function($query) use ($request) {
                 $query->where('name','LIKE','%'.$request->search.'%');
-            })->paginate(6);
+            })
+            ->when($request->year,function($query) use ($request){
+                $query->where('year_id',$request->year);
+            })
+            ->paginate(10);
             $links = $data->links('layouts.paginate');
             return response()->json([
                 'data' => $data,
@@ -35,7 +40,10 @@ class DocumentController extends Controller
                 ]
             ]);
         }
-        return view('pages.print');
+
+        $data['years'] = Year::orderBy('created_at','desc')->get();
+        $data['lastYear'] = $data['years']->first();
+        return view('pages.print',$data);
     }
 
     public function back($id){

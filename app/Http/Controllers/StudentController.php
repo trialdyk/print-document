@@ -22,7 +22,7 @@ class StudentController extends Controller
                     ->when($request->classroom,function($query) use ($request){
                         $query->where('classroom_id',$request->classroom);
                     })
-                    ->orderBy('created_at','desc')->paginate(6);
+                    ->orderBy('created_at','desc')->paginate(15);
             $links = $data->links('layouts.paginate');
             return response()->json([
                 'data' => $data,

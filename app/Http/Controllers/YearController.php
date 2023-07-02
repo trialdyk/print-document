@@ -16,7 +16,7 @@ class YearController extends Controller
             ->when($request->search, function($query) use ($request) {
                 $query->where('name','LIKE','%'.$request->search.'%');
              })
-            ->paginate(6);
+            ->paginate(15);
             $links = $data->links('layouts.paginate');
             return response()->json([
                 'data' => $data,

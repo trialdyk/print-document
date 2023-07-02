@@ -15,7 +15,7 @@
         <div class="flex gap-2">
           <button
           type="button"
-          class="flex items-center rounded bg-primary px-6 max-h-10 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] "
+          class="flex items-center rounded bg-blue-600 px-6 max-h-10 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] "
           data-te-toggle="modal"
           data-te-target="#addModal"
           data-te-ripple-init
@@ -32,7 +32,7 @@
                 aria-label="Search"
                 aria-describedby="button-addon1" />
               <!--Search button-->
-              <button id="btn-search" class="relative z-[2] flex items-center rounded-r bg-blue-400 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-400-700 hover:shadow-lg focus:bg-blue-400-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
+              <button id="btn-search" class="relative z-[2] flex items-center rounded-r bg-blue-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-400-700 hover:shadow-lg focus:bg-blue-400-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
                 type="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -117,10 +117,10 @@
       <!--Modal footer-->
       <div
         class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 ">
-        <button type="button" class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
+        <button type="button" class="inline-block rounded bg-blue-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-blue-600 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
           Batal
         </button>
-        <button type="submit" class="ml-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] " >
+        <button type="submit" class="ml-1 inline-block rounded bg-blue-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] " >
           Simpan
         </button>
       </div>
@@ -171,10 +171,10 @@
         <!--Modal footer-->
         <div
           class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 ">
-          <button type="button" class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
+          <button type="button" class="inline-block rounded bg-blue-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-blue-600 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
             Batal
           </button>
-          <button type="submit" class="ml-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] "  data-te-ripple-init data-te-ripple-color="light">
+          <button type="submit" class="ml-1 inline-block rounded bg-blue-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] "  data-te-ripple-init data-te-ripple-color="light">
             Simpan
           </button>
         </div>
@@ -194,5 +194,212 @@
 @endsection
 
 @section('script')
-    @vite('resources/js/classroom.js')
+    <script>
+      var select = '<select name="year_id" value="" id="edit-year-select"></select>';
+var option = '';
+
+new TomSelect('#search-year')
+GetData(1);
+GetYear();
+
+$('#search-year').change(function(){
+    GetData(1)
+})
+
+function GetData(page){
+    $.ajax({
+        url:'/classroom?page='+page,
+        type:'GET',
+        data:{
+            search: $('#search').val(),
+            year: $('#search-year').val()
+        },
+        success:function(response){
+            $('#table').html('')
+            $('#empty').html('')
+            if(response.data.data.length > 0){
+                $.each(response.data.data, function(index,data){
+                    var row =   `<tr class="">
+                                    <td class="whitespace-nowrap px-6 py-4 font-medium">`+(response.pagination.from + index)+`</td>
+                                    <td class="whitespace-nowrap px-6 py-4">`+data.name+`</td>
+                                    <td class="whitespace-nowrap px-6 py-4">`+data.year.year+`</td>
+                                    <td class="whitespace-nowrap px-6 py-4">
+                                        <div class="flex items-center gap-2">
+                                            <button data-name="`+data.name+`" data-year="`+data.year_id+`" data-id="`+data.id+`" style="background-color:#E2CB19;" class=" text-white p-2 mr-1 rounded-md btn-edit">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+                                            </button>
+                                            <button data-id="`+data.id+`" class="bg-red-600 text-white p-2 rounded-md btn-delete">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M9 3v1H4v2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1V4h-5V3H9M7 6h10v13H7V6m2 2v9h2V8H9m4 0v9h2V8h-2Z"/></svg>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>`
+                    $('#table').append(row)
+                })
+                $('#paginate').html(response.links)
+                $('.pagination-link').click(function(){
+                    var page = $(this).data('page')
+                    GetData(page)
+                })
+                $('.btn-edit').click(function(){
+                    $('#edit-year').html('')
+                    var name = $(this).data('name');
+                    var year = $(this).data('year')
+                    $('#edit-name').val(name)
+                    $('#edit-year').html(select)
+                    $('#edit-year-select').html(option)
+                    $('#edit-year-select').val(year)
+                    new TomSelect('#edit-year-select')
+                    var id = $(this).data('id')
+                    $('#editModal').data('id',id)
+                    $('#open-edit-modal').click();
+                })
+            }else{
+                var src = "src='../empty_data.png'";
+                var row =   '<img '+src+' width="400px" class="w-44 mt-4" alt="">'
+                $('#empty').html(row)
+            }
+            $('.btn-edit').click(function(){
+        var year = $(this).data('year');
+        $('#edit-year').val(year)
+        $('#open-edit-modal').click();
+    })
+        },
+        error:function(request, status, error){
+            console.log(error)
+        }
+    })
+    
+}
+
+function GetYear(){
+    $.ajax({
+        url:'/data/year',
+        type:'GET',
+        success:function(response){
+            $.each(response,function(index,data){
+                var row = '<option value="'+data.id+'">'+data.year+'</option>'
+                option += row;
+            })
+            $('#create-year-select').html(option)
+            new TomSelect('#create-year-select')
+        }
+    })
+}
+$(document).ready(function(){
+    $('#addModal').submit(function(e){
+        e.preventDefault();
+        
+        $.ajax({
+           url: $(this).attr('action'),
+           type: 'POST',
+           data: $(this).serialize(),
+           success: function(response){
+                GetData(1)
+                Swal.fire({
+                    title:'Berhasil!',
+                    icon:'success',
+                    text: response
+                })
+                $('#btn-close-modal-create').click();
+           },
+           error: function(response){
+                var errors = response.responseJSON.errors;
+                var errorMessage = '';
+
+                $.each(errors, function(key, value) {
+                    errorMessage += '<p class="text-red-500">' + value + '</p>';
+                });
+
+                Swal.fire({
+                    title: 'Gagal!',
+                    html: errorMessage,
+                    icon: 'error',
+                })
+           }
+        });
+    });
+})
+
+
+$(document).ready(function(){
+    $('#editModal').submit(function(e){
+        e.preventDefault();
+        var id = $(this).data('id')
+        $.ajax({
+           url: '/classroom/'+id,
+           type: 'PUT',
+           data: $(this).serialize(),
+           success: function(response){
+                GetData(1)
+                Swal.fire({
+                    title:'Berhasil!',
+                    icon:'success',
+                    text: response
+                })
+                $('#btn-close-modal-edit').click();
+           },
+           error: function(response){
+                var errors = response.responseJSON.errors;
+                var errorMessage = '';
+
+                $.each(errors, function(key, value) {
+                    errorMessage += '<p class="text-red-500">' + value + '</p>';
+                });
+
+                Swal.fire({
+                    title: 'Gagal!',
+                    html: errorMessage,
+                    icon: 'error',
+                })
+           }
+        });
+    });
+})
+
+
+$(document).on('click', '.btn-delete', function(){
+    var id = $(this).data('id');
+    Swal.fire({
+        title: 'Apakah Anda yakin ingin menghapus data ini?',
+        text: "Data yang dihapus tidak dapat dikembalikan!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Hapus',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '/classroom/' + id,
+                type: 'DELETE',
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response){
+                    Swal.fire({
+                        title:'Berhasil!',
+                        icon:'success',
+                        text: response
+                    })
+                    GetData(1);
+                },
+                error: function(request, status, error){
+                    Swal.fire({
+                        title:'Gagal!',
+                        icon:'error',
+                        text:error
+                    })
+                }
+            });
+        }
+    })
+})
+
+$('#btn-search').click(function(){
+    GetData(1)
+})
+
+    </script>
 @endsection

@@ -89,10 +89,10 @@
       <!--Modal footer-->
       <div
         class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 ">
-        <button type="button" class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
+        <button type="button" class="inline-block rounded bg-blue-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-blue-600 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
           Batal
         </button>
-        <button type="submit" class="ml-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] " >
+        <button type="submit" class="ml-1 inline-block rounded bg-blue-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] " >
           Simpan
         </button>
       </div>
@@ -112,5 +112,144 @@
 @endsection
 
 @section('script')
-    @vite('resources/js/rekap.js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script>
+      let inputTanggal = document.getElementById("input-date");
+      inputTanggal.addEventListener("change", function() {
+        let tanggal = moment(inputTanggal.value).format("DD/MM/YYYY");
+        inputTanggal.value = tanggal;
+      });
+    </script>
+    <script>
+      new TomSelect('#search-classroom')
+
+$('#search-classroom').change(function(){
+    $('#pilih').remove();
+    $('#data').removeClass('hidden')
+    GetData(1)
+})
+
+function GetData(page){
+    $.ajax({
+        url:'/rekap-spp?page='+page,
+        type:'GET',
+        data:{
+            classroom: $('#search-classroom').val()
+        },
+        success:function(response){
+            $('#table').html('')
+            $('#empty').html('')
+            if(response.data.data.length > 0){
+                $.each(response.data.data, function(index,data){
+                    var row =   `<tr class="">
+                                    <td class="whitespace-nowrap px-6 text-center py-4">
+                                        `+(response.pagination.from + index)+`
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 text-center py-4">
+                                        `+data.name+`
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 text-center py-4">
+                                        <button class="`+(data.rekap.juli ? 'bg-green-500' : 'bg-red-600 btn-bayar')+`  px-3 py-1 rounded-md text-white" data-id="`+data.id+`" data-bulan="juli">`+(data.rekap.juli ? formatDate(data.rekap.juli) : 'bayar')+`</button>
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 text-center py-4">
+                                        <button class="`+(data.rekap.agustus ? 'bg-green-500' : 'bg-red-600 btn-bayar')+`  px-3 py-1 rounded-md text-white" data-id="`+data.id+`" data-bulan="agustus">`+(data.rekap.agustus ? formatDate(data.rekap.agustus) : 'bayar')+`</button>
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 text-center py-4">
+                                        <button class="`+(data.rekap.september ? 'bg-green-500' : 'bg-red-600 btn-bayar')+`  px-3 py-1 rounded-md text-white" data-id="`+data.id+`" data-bulan="september">`+(data.rekap.september ? formatDate(data.rekap.september) : 'bayar')+`</button>
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 text-center py-4">
+                                        <button class="`+(data.rekap.oktober ? 'bg-green-500' : 'bg-red-600 btn-bayar')+`  px-3 py-1 rounded-md text-white" data-id="`+data.id+`" data-bulan="oktober">`+(data.rekap.oktober ? formatDate(data.rekap.oktober) : 'bayar')+`</button>
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 text-center py-4">
+                                        <button class="`+(data.rekap.november ? 'bg-green-500' : 'bg-red-600 btn-bayar')+`  px-3 py-1 rounded-md text-white" data-id="`+data.id+`" data-bulan="november">`+(data.rekap.november ? formatDate(data.rekap.november) : 'bayar')+`</button>
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 text-center py-4">
+                                        <button class="`+(data.rekap.desember ? 'bg-green-500' : 'bg-red-600 btn-bayar')+`  px-3 py-1 rounded-md text-white" data-id="`+data.id+`" data-bulan="desember">`+(data.rekap.desember ? formatDate(data.rekap.desember) : 'bayar')+`</button>
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 text-center py-4">
+                                        <button class="`+(data.rekap.januari ? 'bg-green-500' : 'bg-red-600 btn-bayar')+`  px-3 py-1 rounded-md text-white" data-id="`+data.id+`" data-bulan="januari">`+(data.rekap.januari ? formatDate(data.rekap.januari) : 'bayar')+`</button>
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 text-center py-4">
+                                        <button class="`+(data.rekap.februari ? 'bg-green-500' : 'bg-red-600 btn-bayar')+`  px-3 py-1 rounded-md text-white" data-id="`+data.id+`" data-bulan="februari">`+(data.rekap.februari ? formatDate(data.rekap.februari) : 'bayar')+`</button>
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 text-center py-4">
+                                        <button class="`+(data.rekap.maret ? 'bg-green-500' : 'bg-red-600 btn-bayar')+`  px-3 py-1 rounded-md text-white" data-id="`+data.id+`" data-bulan="maret">`+(data.rekap.maret ? formatDate(data.rekap.maret) : 'bayar')+`</button>
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 text-center py-4">
+                                        <button class="`+(data.rekap.april ? 'bg-green-500' : 'bg-red-600 btn-bayar')+`  px-3 py-1 rounded-md text-white" data-id="`+data.id+`" data-bulan="april">`+(data.rekap.april ? formatDate(data.rekap.april) : 'bayar')+`</button>
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 text-center py-4">
+                                        <button class="`+(data.rekap.mei ? 'bg-green-500' : 'bg-red-600 btn-bayar')+`  px-3 py-1 rounded-md text-white" data-id="`+data.id+`" data-bulan="mei">`+(data.rekap.mei ? formatDate(data.rekap.mei) : 'bayar')+`</button>
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 text-center py-4">
+                                        <button class="`+(data.rekap.juni ? 'bg-green-500' : 'bg-red-600 btn-bayar')+`  px-3 py-1 rounded-md text-white" data-id="`+data.id+`" data-bulan="juni">`+(data.rekap.juni ? formatDate(data.rekap.juni) : 'bayar')+`</button>
+                                    </td>
+                                </tr>`
+                    $('#table').append(row)
+                })
+                $('#paginate').html(response.links)
+                $('.pagination-link').click(function(){
+                    var page = $(this).data('page')
+                    GetData(page)
+                })
+                $('.btn-bayar').click(function(){
+                    var id = $(this).data('id')
+                    var bulan = $(this).data('bulan')
+                
+                    $('#addModal').data('id',id)
+                    $('#input-bulan').val(bulan)
+                    $('#open-modal').click();
+                })
+            }else{
+                var src = "src='../empty_data.png'";
+                var row =   '<img '+src+' width="400px" class="w-44 mt-4" alt="">'
+                $('#empty').html(row)
+            }
+        },
+        error:function(response){
+            console.log(response.responseText)
+        }
+    })   
+}
+
+$(document).ready(function(){
+    $('#addModal').submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            url: '/rekap-spp/'+($(this).data('id')),
+            type: 'PUT',
+            data: $(this).serialize(),
+            success: function(response){
+                 GetData(1)
+                 Swal.fire({
+                     title:'Berhasil!',
+                     icon:'success',
+                     text: response
+                 })
+                 $('#btn-close-modal-create').click();
+            },
+            error: function(response){
+                 var errors = response.responseJSON.errors;
+                 var errorMessage = '';
+ 
+                 $.each(errors, function(key, value) {
+                     errorMessage += '<p class="text-red-500">' + value + '</p>';
+                 });
+ 
+                 Swal.fire({
+                     title: 'Gagal!',
+                     html: errorMessage,
+                     icon: 'error',
+                 })
+            }
+         });
+    })
+})
+
+function formatDate(date) {
+  let parts = date.split("-"); 
+  let formattedDate = parts[2] + "/" + parts[1] + "/" + parts[0]; 
+  return formattedDate; 
+}
+    </script>
 @endsection
