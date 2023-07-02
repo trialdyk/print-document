@@ -254,6 +254,7 @@ $(document).ready(function(){
                     icon:'success',
                     text: response
                 })
+                $('#create-name').val('')
                 $('#btn-close-modal-create').click();
            },
            error: function(response){

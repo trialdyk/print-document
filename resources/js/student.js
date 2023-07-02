@@ -108,6 +108,8 @@ $(document).ready(function(){
                     icon:'success',
                     text: response
                 })
+                $('#create-nis').val('')
+                $('#create-name').val('')
                 $('#btn-close-modal-create').click();
            },
            error: function(response){

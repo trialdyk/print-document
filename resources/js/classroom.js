@@ -102,6 +102,7 @@ $(document).ready(function(){
            data: $(this).serialize(),
            success: function(response){
                 GetData(1)
+                $('#create-name').val('')
                 Swal.fire({
                     title:'Berhasil!',
                     icon:'success',
