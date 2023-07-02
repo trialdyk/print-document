@@ -79,8 +79,12 @@ class DocumentController extends Controller
         foreach($students as $i => $student){
             $var_nama = 'nama_'.($i+1);
             $var_kelas = 'kelas_'.($i+1);
+            $var_thn = 'thn_'.($i+1);
+            $var_ajaran = 'ajaran_'.($i+1);
             $template->setValue($var_nama,$student->name);
             $template->setValue($var_kelas,$classroom->name);
+            $template->setValue($var_ajaran,$classroom->year->year);
+            $template->setValue($var_thn,substr($classroom->year->year,0,4));
         }
 
         $filename = $classroom->name.'_depan.docx';
