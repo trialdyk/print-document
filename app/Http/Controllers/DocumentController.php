@@ -40,8 +40,8 @@ class DocumentController extends Controller
 
     public function back($id){
         $classroom = Classroom::findorfail($id);
-        $students = Student::where('classroom_id',$id)->get();
-        $template_title = 'template/template-belakang-'.count($students).'.docx';
+        $students = Student::where('classroom_id',$id)->orderBy('name')->get();
+        $template_title = public_path('Template/template-belakang-'.count($students).'.docx');
 
         $template = new TemplateProcessor($template_title);
 
@@ -63,8 +63,8 @@ class DocumentController extends Controller
 
     public function front($id){
         $classroom = Classroom::findorfail($id);
-        $students = Student::where('classroom_id',$id)->get();
-        $template_title = 'template/template-depan-'.count($students).'.docx';
+        $students = Student::where('classroom_id',$id)->orderBy('name')->get();
+        $template_title = public_path('Template/template-depan-'.count($students).'.docx');
 
         $template = new TemplateProcessor($template_title);
 

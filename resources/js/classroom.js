@@ -3,14 +3,22 @@ import TomSelect from "tom-select";
 import Swal from "sweetalert2";
 var select = '<select name="year_id" value="" id="edit-year-select"></select>';
 var option = '';
+
+new TomSelect('#search-year')
 GetData(1);
 GetYear();
+
+$('#search-year').change(function(){
+    GetData(1)
+})
+
 function GetData(page){
     $.ajax({
         url:'/classroom?page='+page,
         type:'GET',
         data:{
-            search: $('#search').val()
+            search: $('#search').val(),
+            year: $('#search-year').val()
         },
         success:function(response){
             $('#table').html('')

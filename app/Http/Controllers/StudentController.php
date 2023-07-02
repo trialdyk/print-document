@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StudentRequest;
+use App\Models\Classroom;
 use App\Models\Rekap;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -15,8 +16,11 @@ class StudentController extends Controller
         if(request()->ajax())
         {
             $data = Student::with('classroom')
-                    ->when($request->search, function($query) use ($request) {
+                    ->when($request->has('search'), function($query) use ($request) {
                         $query->where('name','LIKE','%'.$request->search.'%');
+                    })
+                    ->when($request->classroom,function($query) use ($request){
+                        $query->where('classroom_id',$request->classroom);
                     })
                     ->orderBy('created_at','desc')->paginate(6);
             $links = $data->links('layouts.paginate');
@@ -33,7 +37,8 @@ class StudentController extends Controller
                 ]
             ]);
         }
-        return view('pages.student');
+        $data['classrooms'] = Classroom::with('year')->orderBy('created_at','desc')->get();
+        return view('pages.student',$data);
     }
 
     public function store(StudentRequest $request)

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ClassroomRequest;
 use App\Models\Classroom;
+use App\Models\Year;
 use Illuminate\Http\Request;
 
 class ClassroomController extends Controller
@@ -14,6 +15,9 @@ class ClassroomController extends Controller
             $data = Classroom::with('year')
                 ->when($request->has('search'), function($query) use ($request) {
                     $query->where('name','LIKE','%'.$request->search.'%');
+                })
+                ->when($request->year,function($query) use ($request){
+                    $query->where('year_id',$request->year);
                 })
                 ->orderBy('created_at','desc')->paginate(6);
             $links = $data->links('layouts.paginate');
@@ -30,7 +34,8 @@ class ClassroomController extends Controller
                     ]
                 ]);
         }
-        return view('pages.classroom');
+        $data['years'] = Year::orderBy('created_at','desc')->get();
+        return view('pages.classroom',$data);
     }
 
     public function data(){

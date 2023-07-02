@@ -4,17 +4,25 @@
 <div class="m-6">
     <div class="flex w-full justify-between">
         <!-- Required font awesome -->
-        <button
-        type="button"
-        class="flex items-center rounded bg-primary px-6 max-h-10 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] "
-        data-te-toggle="modal"
-        data-te-target="#addModal"
-        data-te-ripple-init
-        data-te-ripple-color="light">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2Z"/></svg>
-        Tambah Data
-        </button>
         <div class="">
+          <select name="" id="search-year" class="w-64" placeholder="Pilih Tahun Ajaran">
+              <option value="" ></option>
+              @foreach ($years as $year)
+                  <option value="{{$year->id}}">Tahun Ajaran {{$year->year}}</option>
+              @endforeach
+          </select>     
+        </div>
+        <div class="flex gap-2">
+          <button
+          type="button"
+          class="flex items-center rounded bg-primary px-6 max-h-10 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] "
+          data-te-toggle="modal"
+          data-te-target="#addModal"
+          data-te-ripple-init
+          data-te-ripple-color="light">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2Z"/></svg>
+          Tambah 
+          </button>
             <div class="relative mb-4 flex w-full flex-wrap items-stretch">
               <input
                 type="search"

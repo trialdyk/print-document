@@ -2,15 +2,21 @@ import $ from "jquery";
 import TomSelect from "tom-select";
 import Swal from "sweetalert2";
 var select = '<select name="classroom_id" value="" id="edit-classroom-select"></select>';
+new TomSelect('#search-classroom')
 var option = '';
 GetData(1);
 GetClassroom();
+
+$('#search-classroom').change(function(){
+    GetData(1)
+})
 function GetData(page){
     $.ajax({
         url:'/student?page='+page,
         type:'GET',
         data:{
-            search: $('#search').val()
+            search: $('#search').val(),
+            classroom: $('#search-classroom').val(),
         },
         success:function(response){
             $('#table').html('')
