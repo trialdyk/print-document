@@ -180,6 +180,7 @@
 
 @section('script')
     <script>
+      
       GetData(1);
 function GetData(page){
     $.ajax({

@@ -2,16 +2,21 @@
 
 @section('content')
 <div class="m-6">
-    <div class=" flex">
-        <div class="flex w-full">
-            <select name="" id="search-classroom" style="width:40%;" placeholder="Pilih Kelas">
-                <option value="" ></option>
-                @foreach ($classrooms as $classroom)
-                    <option value="{{$classroom->id}}">{{$classroom->name}} Tahun Ajaran {{$classroom->year->year}}</option>
-                @endforeach
-            </select>     
+    <div class="flex gap-2">
+        <select name="" id="search-year" class="w-64" placeholder="Pilih Tahun Ajaran">
+            @foreach ($years as $year)
+                <option value="{{$year->id}}">Tahun Ajaran {{$year->year}}</option>
+            @endforeach
+        </select>
+        <div id="classroom">
+          <select name="" id="search-classroom" class="w-64" placeholder="Pilih Kelas">
+            <option value=""></option>
+            @foreach ($classrooms as $classroom)
+                  <option value="{{$classroom->id}}">{{$classroom->name}}</option>
+            @endforeach
+          </select>
         </div>
-    </div>
+      </div>
     <div class="w-full text-center mt-32" id="pilih">
         Pilih Kelas Terlebih Dahulu..
     </div>
@@ -122,11 +127,43 @@
     </script>
     <script>
       new TomSelect('#search-classroom')
+      new TomSelect('#search-year')
+      var select_search = '<select class="w-64" name="search_classroom" placeholder="Cari Kelas" id="search-classroom"><option value=""></option></select>'
 
 $('#search-classroom').change(function(){
     $('#pilih').remove();
     $('#data').removeClass('hidden')
     GetData(1)
+})
+
+$('#search-year').change(function(){
+    $.ajax({
+      url:'/data/classroom',
+      type:'GET',
+      data:{
+          year: $('#search-year').val() 
+      },
+      success:function(response){
+          option = '';
+          var last;
+          console.log(response)
+          $.each(response,function(index,data){
+            if(index == 0){
+              last = data.id
+            }
+            var row = '<option value="'+data.id+'">'+data.name+'</option>'
+            option += row;
+          })
+          $('#classroom').html('')
+          $('#classroom').html(select_search)
+          $('#search-classroom').append(option)
+          new TomSelect('#search-classroom')
+          GetData(1)
+      },
+      error:function(response){
+
+      }
+    })
 })
 
 function GetData(page){

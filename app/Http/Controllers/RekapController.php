@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Classroom;
 use App\Models\Rekap;
 use App\Models\Student;
+use App\Models\Year;
 use Illuminate\Http\Request;
 use PHPUnit\Framework\MockObject\Builder\Stub;
 
@@ -29,8 +30,10 @@ class RekapController extends Controller
             ]);
         }
 
-        $classrooms = Classroom::with('year')->orderBy('created_at','desc')->get();
-        return view('pages.rekap',['classrooms' => $classrooms]);
+        $data['years'] = Year::orderBy('created_at','desc')->get();
+        $lastYear = $data['years']->first();
+        $data['classrooms'] = Classroom::where('year_id',$lastYear->id)->get();
+        return view('pages.rekap',$data);
     }
 
 

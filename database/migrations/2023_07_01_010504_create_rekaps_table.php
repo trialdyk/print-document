@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('student_id')->constrained('students')->cascadeOnDelete();
             $table->date('juli')->format('d/m/Y')->nullable();
             $table->date('agustus')->format('d/m/Y')->nullable();
-            $table->date('septemer')->format('d/m/Y')->nullable();
+            $table->date('september')->format('d/m/Y')->nullable();
             $table->date('oktober')->format('d/m/Y')->nullable();
             $table->date('november')->format('d/m/Y')->nullable();
             $table->date('desember')->format('d/m/Y')->nullable();

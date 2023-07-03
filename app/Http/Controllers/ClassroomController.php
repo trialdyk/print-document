@@ -38,8 +38,12 @@ class ClassroomController extends Controller
         return view('pages.classroom',$data);
     }
 
-    public function data(){
-        $data = Classroom::with('year')->orderBy('created_at','desc')->get();
+    public function data(Request $request){
+        $data = Classroom::with('year')
+        ->when($request->has('year'),function($query) use ($request){
+            $query->where('year_id',$request->year);
+        })
+        ->orderBy('created_at','desc')->get();
         return response()->json($data);
     }
 

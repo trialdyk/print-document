@@ -6,6 +6,7 @@ use App\Http\Requests\StudentRequest;
 use App\Models\Classroom;
 use App\Models\Rekap;
 use App\Models\Student;
+use App\Models\Year;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -37,7 +38,9 @@ class StudentController extends Controller
                 ]
             ]);
         }
-        $data['classrooms'] = Classroom::with('year')->orderBy('created_at','desc')->get();
+        $data['years'] = Year::orderBy('created_at','desc')->get();
+        $lastYear = $data['years']->first();
+        $data['classrooms'] = Classroom::where('year_id',$lastYear->id)->get();
         return view('pages.student',$data);
     }
 
