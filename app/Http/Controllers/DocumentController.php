@@ -49,6 +49,13 @@ class DocumentController extends Controller
     public function back($id){
         $classroom = Classroom::findorfail($id);
         $students = Student::where('classroom_id',$id)->orderBy('name')->get();
+        if(count($students) == 0){
+            toastr()->error('Tidak Ada Siswa Dikelas '.$classroom->name.' !');
+            return redirect()->back();
+        }else if(count($students) > 40){
+            toastr()->error('Tidak Bisa Mencetak Lebih Dari 40 Siswa !');
+            return redirect()->back();
+        }
         $template_title = public_path('Template/template-belakang-'.count($students).'.docx');
 
         $template = new TemplateProcessor($template_title);
@@ -72,6 +79,13 @@ class DocumentController extends Controller
     public function front($id){
         $classroom = Classroom::findorfail($id);
         $students = Student::where('classroom_id',$id)->orderBy('name')->get();
+        if(count($students) < 1){
+            toastr()->error('Tidak Ada Siswa Dikelas '.$classroom->name.' !');
+            return redirect()->back();
+        }else if(count($students) > 40){
+            toastr()->error('Tidak Bisa Mencetak Lebih Dari 40 Siswa !');
+            return redirect()->back();
+        }
         $template_title = public_path('Template/template-depan-'.count($students).'.docx');
 
         $template = new TemplateProcessor($template_title);
